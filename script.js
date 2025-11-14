@@ -104,7 +104,7 @@ async function singleCount(place){
         console.error(error.message);
             main.style.display = "none";
             const errorDiv = document.createElement("div");
-            errorDiv.innerHTML = `<p style = "font-weight: 800; text-align: center; margin: 10px;">No  search results found. Reload page</p>`
+            errorDiv.innerHTML = `<p style = "font-weight: 800; text-align: center; margin: 10px;">No  search results found</p>`
             searchArea.appendChild(errorDiv);
     }
 }
@@ -147,7 +147,6 @@ async function displaySearch (places){
             logCast(place);
             locationPlace(placeItem.textContent)
             historyContainer.style.display = "none"
-            main.style.display = "block";
             searchPlace.value = placeItem.textContent;
             coordinateInfo = place;
         });
@@ -358,7 +357,6 @@ place.addEventListener("click", async ()=> {
     if (location) {
         singleCount(location);
         historyContainer.style.display = "none";
-        main.style.display = "block";
     }else {
         header.textContent="Please enter a location";
     }
