@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <title>Frontend Mentor | Weather app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div>
+    <header class="top-bar">
+    <div class="main-logo"><img src="./assets/images/logo.svg" alt="logo"></div>
+   <div class="dropdown">
+    <div for="metric" id="units" ><img src="./assets/images/icon-units.svg" alt="units" > Units <img src="./assets/images/icon-dropdown.svg" alt="dropdown"></div>
+    <ul id="metric">
+      <li  id="imperial">Switch to Imperial</li>
+      <li class="title-names"> Temperature</li>
+      <li id="celcius">Celsius (°C)</li>
+      <li id="fahrenheit">Fahrenheit (°F)</li>
+      <hr>
+      <li class="title-names"> Wind Speed</li>
+      <li  id="kmh">km/h</li>
+      <li id="mph">mph</li>
+      <hr>
+      <li class="title-names">Precipitation</li>
+      <li id="millimeters">Millimeters (mm)</li>
+      <li id="inches">Inches (in)</li>
+      
+    </ul>
+   </div>
+  </header>
+  <h1 class="message">How's the sky looking today?</h1>
+  <div class="search-area">
+    <input type="text" id="search" placeholder= "Search for a city, e.g., New York">
+   <button type="submit" id="get-location"> Search</button>
+   <div id="search-history"></div>
+   
+  </div>
+  
+
+  <div id="main-area">
+    <main id="weather-area">
+      
+      <div class="location">
+        <h2 id="place">-</h2>
+        <p id="date">-</p>
+      </div>
+      <div class="Weather">
+        <p ><img src="./assets/images/" alt="" id="weather-image"></p>
+        <p id="weather-degrees">-</p>
+      </div>
+    </main>
+
+    <div id="weather-spec">
+      <div class="weather-panel">
+        <p> Feels like</p>
+        <p class="deg" id="temp">-  <!-- Insert temperature here --> </p>
+      </div>
+      <div class="weather-panel">
+        <p> Humidity</p>
+        <p class="deg" id="humidity">- <!-- Insert humidity here --></p>
+      </div>
+      <div class="weather-panel">
+        <p> Wind</p>
+        <p class="deg" id="wind">- <!-- Insert wind here -->  </p>
+      </div>
+      <div class="weather-panel">
+        <p>Precipitation</p>
+        <p class="deg" id="precipitation">-<!-- Insert precipitation here --> </p>
+      </div>
+    </div>
+   <div id="days">
+      <p>Daily forecast</p>
+      <div class="forecast-container">
+        <div class="daily-forecast">
+        <p class="day">-</p>
+        <p><img src="" alt="" id="img-icon"></p>
+        <div class="daily-temps">
+          <p class="min-temp"></p>
+          <p class="max-temp"></p>
+        </div>
+    </div>
+    <div class="daily-forecast">
+        <p class="day">-</p>
+        <p><img src="" alt="" id="img-icon"></p>
+        <div class="daily-temps">
+          <p class="min-temp"></p>
+          <p class="max-temp"></p>
+        </div>
+    </div>
+    <div class="daily-forecast">
+        <p class="day">-</p>
+        <p><img src="" alt="" id="img-icon"></p>
+        <div class="daily-temps">
+          <p class="min-temp"></p>
+          <p class="max-temp"></p>
+        </div>
+    </div>
+    <div class="daily-forecast">
+        <p class="day">-</p>
+        <p><img src="" alt="" id="img-icon"></p>
+        <div class="daily-temps">
+          <p class="min-temp"></p>
+          <p class="max-temp"></p>
+        </div>
+    </div>
+    <div class="daily-forecast">
+        <p class="day">-</p>
+        <p><img src="" alt="" id="img-icon"></p>
+        <div class="daily-temps">
+          <p class="min-temp"></p>
+          <p class="max-temp"></p>
+        </div>
+    </div>
+    <div class="daily-forecast">
+        <p class="day">-</p>
+        <p><img src="" alt="" id="img-icon"></p>
+        <div class="daily-temps">
+          <p class="min-temp"></p>
+          <p class="max-temp"></p>
+        </div>
+    </div>
+    <div class="daily-forecast">
+        <p class="day">-</p>
+        <p><img src="" alt="" id="img-icon"></p>
+        <div class="daily-temps">
+          <p class="min-temp"></p>
+          <p class="max-temp"></p>
+        </div>
+    </div>
+      </div>
+    </div> 
+    <aside id="hours">
+      <div class="forecast-head">
+        <p> Hourly forecast</p>
+      <label for="daysInWeek">Days</label>
+      <select id="daysInWeek">
+        <option value="monday">Monday</option>
+        <option value="tuesday">Tuesday</option>
+        <option value="wednesday">Wednesday</option>
+        <option value="thursday">Thursday</option>
+        <option value="friday">Friday</option>
+        <option value="Saturday">Saturday</option>
+        <option value="sunday">Sunday</option>
+      </select>
+      </div>
+      
+     <div id="hourly-forecast">
+     <!-- Insert hourly forecast for the selected day here -->   
+     </div>
+   </aside>
+   </div>
+
+ 
+
+  </div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="https://www.frontendmentor.io/profile/Ola-wale21">Olakunle Samuel</a>.
+  </div>
+  <script src="./script.js" charset="UTF-8"></script>
+</body>
+</html>
