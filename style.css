@@ -57,6 +57,9 @@ body {
     background-color: var(--Neutral-800);
     list-style: none;
     position: absolute;
+    margin-top: 10px;
+    top: 100%;
+    left: -25%;
     width: 150px;
     text-align: left;
     padding: 10px;
@@ -139,7 +142,7 @@ h1.message {
  display: flex;
  flex-direction: column;
  gap: 10px;
-  justify-content: center;
+justify-content: center;
  align-items: center;
  width: 100%;
  position: relative;
@@ -190,7 +193,8 @@ button[type="submit" ]:hover{
     z-index: 10;
     max-width: 650px;
     position: absolute;
-    top: 40px;
+    margin-top: 10px;
+    top: 100%;
 }
 #search-history > div {
     background-color: var(--Neutral-600);
@@ -370,6 +374,9 @@ div.daily-forecast {
     .area {
     flex-direction: column;
     }
+    input#search {
+        max-width: 100%;
+    }
     button[type="submit" ] {
     max-width: 100%;
     }
@@ -384,6 +391,10 @@ div.daily-forecast {
     }
     input#search{
         width: 100%;
+    }
+    #search-history {
+        max-width: 100%;
+        top: 100%;
     }
     button[type="submit"]{
         margin: 10px 0;
