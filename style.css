@@ -108,7 +108,8 @@ h1.message {
     text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center; gap: 10px;
+    align-items: center; 
+    gap: 10px;
 }
 #reload-btn {
     background-color: var(--Neutral-800);
@@ -135,19 +136,35 @@ h1.message {
     color: var(--Neutral-300);
 }
 .search-area {
-    margin: 20px;
-    position: relative;
-    left: 20%;
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+  justify-content: center;
+ align-items: center;
+ width: 100%;
+ position: relative;
+ margin: 10px 0;
+}
+.area {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 input#search {
-    width: 50%;
     padding: 10px;
     background-color: var(--Neutral-800);
     border: none;
+    cursor: pointer;
+    flex: 1;
+    max-width: 500px;
     border-radius: 5px;
-    -webkit-backdrop-filter:  blur(2px) saturate(180%);
-    backdrop-filter: blur(2px) saturate(180%);
-    transition: background-color 0.3s ease;
+
+}
+input#search:hover{
+    background-color: var(--Neutral-600);
+    border: 1px solid var(--Neutral-200);
 }
 button[type="submit" ] {
     padding: 10px 15px;
@@ -155,6 +172,8 @@ button[type="submit" ] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    max-width: 150px;
+    flex: 1;
 }
 button[type="submit" ]:hover{
     background-color: var(--Blue-700);
@@ -165,12 +184,13 @@ button[type="submit" ]:hover{
     background-color: var(--Neutral-800);
     border-radius: 10px;
     padding: 0 20px 20px 20px;
-    width: 50%;
-    margin-top: 10px;
+    width: 100%;
     padding: 10px;
     cursor: pointer;
-    position: absolute;
     z-index: 10;
+    max-width: 650px;
+    position: absolute;
+    top: 40px;
 }
 #search-history > div {
     background-color: var(--Neutral-600);
@@ -346,6 +366,12 @@ div.daily-forecast {
         display: flex;
         flex-direction: column;
         max-height: 100%;
+    }
+    .area {
+    flex-direction: column;
+    }
+    button[type="submit" ] {
+    max-width: 100%;
     }
     #hours {
         max-height: 400px;
